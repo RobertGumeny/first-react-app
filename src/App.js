@@ -40,10 +40,10 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App">
+      <div className="App container-fluid">
         <h1>Hi, I'm a React App!</h1>
-        <p>Use the buttons to assign people to the <span style={{ color: 'red' }}>Red</span> or <span style={{ color: 'blue' }}>Blue</span> team!</p>
-        <div className="personRow">
+        <p>Use the buttons to assign people to the <span className="text-danger">Red</span> or <span className="text-primary">Blue</span> team!</p>
+        <div className="personRow row">
           {this.state.people.filter(p => p.team === 'Unassigned').map(p => {
             return <Person
               blueTeam={() => this.assignBlueTeamHandler(p.id)}
@@ -53,24 +53,29 @@ class App extends Component {
               team={p.team} />
           })}
         </div>
-        <div className="teamRow">
-          <div className="redTeam">
+        <div className="teamRow row">
+          <div className="col-6">
             <h2>Red Team:</h2>
-            {this.state.people.filter(p => p.team === 'Red').map(p => {
-              return <Person
-                name={p.name}
-                age={p.age}
-                team={p.team} />
-            })}
+            <div className="redTeam row">
+              {this.state.people.filter(p => p.team === 'Red').map(p => {
+                return <Person
+                  name={p.name}
+                  age={p.age}
+                  team={p.team} />
+              })}
+            </div>
           </div>
-          <div className="blueTeam">
+          <div className="col-6">
             <h2>Blue Team:</h2>
-            {this.state.people.filter(p => p.team === 'Blue').map(p => {
-              return <Person
-                name={p.name}
-                age={p.age}
-                team={p.team} />
-            })}
+            <div className="blueTeam row">
+              {this.state.people.filter(p => p.team === 'Blue').map(p => {
+                return <Person
+                  name={p.name}
+                  age={p.age}
+                  team={p.team} />
+              })}
+            </div>
+
           </div>
 
         </div>

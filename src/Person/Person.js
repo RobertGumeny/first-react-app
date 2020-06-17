@@ -10,8 +10,8 @@ export default class Person extends Component {
     if (team === 'Unassigned') {
       buttons = (
         <div className="teamButtons">
-          <button onClick={this.props.redTeam}>Red Team</button>
-          <button onClick={this.props.blueTeam}>Blue Team</button>
+          <button className="btn btn-sm btn-danger" onClick={this.props.redTeam}>Red Team</button>
+          <button className="btn btn-sm btn-primary" onClick={this.props.blueTeam}>Blue Team</button>
         </div>
       )
       teamDisplay = (
@@ -22,7 +22,7 @@ export default class Person extends Component {
       teamDisplay = null;
     }
     return (
-      <div className="Person">
+      <div className="Person col-md-2">
         <p>Name: {this.props.name}</p>
         <p>Age: {this.props.age}</p>
         {teamDisplay}
