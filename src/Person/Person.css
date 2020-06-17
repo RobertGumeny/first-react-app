@@ -1,0 +1,24 @@
+.Person {
+  width: 18rem;
+  margin: 16px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  padding: 16px;
+  text-align: center;
+}
+
+.teamButtons button {
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+}
+
+.teamButtons button:first-child {
+  margin-right: 5px;
+  background-color: red;
+}
+
+.teamButtons button:last-child {
+  color: #f1f1f1;
+  background-color: blue;
+}
