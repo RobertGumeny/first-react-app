@@ -15,8 +15,16 @@ class App extends Component {
     ]
   }
 
-  assignTeamHandler = () => {
-    console.log("go team!")
+  assignBlueTeamHandler = (personIndex) => {
+    let people = this.state.people
+    people[personIndex].team = 'Blue'
+    this.setState({ people: people })
+  }
+
+  assignRedTeamHandler = (personIndex) => {
+    let people = this.state.people
+    people[personIndex].team = 'Red'
+    this.setState({ people: people })
   }
 
   render() {
@@ -32,36 +40,14 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I'm a React App!</h1>
         <div className="personRow">
-          <Person
-            name={this.state.people[0].name}
-            age={this.state.people[0].age}
-            team={this.state.people[0].team}
-            click={this.assignTeamHandler} />
-          <Person
-            name={this.state.people[1].name}
-            age={this.state.people[1].age}
-            team={this.state.people[1].team}
-            click={this.assignTeamHandler} />
-          <Person
-            name={this.state.people[2].name}
-            age={this.state.people[2].age}
-            team={this.state.people[2].team}
-            click={this.assignTeamHandler} />
-          <Person
-            name={this.state.people[3].name}
-            age={this.state.people[3].age}
-            team={this.state.people[3].team}
-            click={this.assignTeamHandler} />
-          <Person
-            name={this.state.people[4].name}
-            age={this.state.people[4].age}
-            team={this.state.people[4].team}
-            click={this.assignTeamHandler} />
-          <Person
-            name={this.state.people[5].name}
-            age={this.state.people[5].age}
-            team={this.state.people[5].team}
-            click={this.assignTeamHandler} />
+          {this.state.people.map((p, index) => {
+            return <Person
+              blueTeam={() => this.assignBlueTeamHandler(index)}
+              redTeam={() => this.assignRedTeamHandler(index)}
+              name={p.name}
+              age={p.age}
+              team={p.team} />
+          })}
         </div>
       </div>
     );
